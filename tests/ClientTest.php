@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: ewebb
- * Date: 5/2/14
- * Time: 7:59 PM
- */
 
 namespace Flood\Tests;
 
@@ -17,7 +11,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
 
     public function setUp()
     {
-        $this->client = new Flood\Client(FLOOD_APIKEY);
+        $this->client = Flood\Client::getClient(FLOOD_APIKEY);
     }
 
     /**
@@ -36,7 +30,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         if (count($floods) > 0) {
             $flood = array_pop($floods);
-            $this->client->floodReport($flood['uuid']);
+            $this->client->floodReport($flood->uuid);
         }
     }
 
@@ -49,7 +43,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         if (count($floods) > 0) {
             $flood = array_pop($floods);
             foreach (array('csv', 'json') as $format) {
-                $this->client->floodResult($flood['uuid'], $format);
+                $this->client->floodResult($flood->uuid, $format);
             }
         }
     }
@@ -62,7 +56,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         if (count($floods) > 0) {
             $flood = array_pop($floods);
-            $this->client->floodRepeat($flood['uuid'], FLOOD_REGION);
+            $this->client->floodRepeat($flood->uuid);
         }
     }
 
@@ -82,7 +76,7 @@ class ClientTest extends \PHPUnit_Framework_TestCase
     {
         if (count($grids) > 0) {
             $grid = array_pop($grids);
-            $this->client->gridDetail($grid['uuid']);
+            $this->client->gridDetail($grid->uuid);
         }
     }
 
