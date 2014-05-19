@@ -40,6 +40,9 @@ class Flood
      */
     protected $threads;
 
+    /**
+     * @var Array List of results in different formats.
+     */
     protected $results;
 
     /**
@@ -51,6 +54,9 @@ class Flood
 
     protected $mean_response_time;
 
+    /**
+     * @var string Tool used to generate the flood.
+     */
     protected $tool;
 
     /**

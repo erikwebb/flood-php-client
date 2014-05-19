@@ -164,7 +164,7 @@ class Client
      * Creates a new grid. This may be a long-running request.
      */
     public function gridCreate() {
-        
+
     }
 
     protected function sendRequest($url, $params = array(), $method = 'GET')
